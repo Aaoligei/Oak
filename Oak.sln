@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Oak", "Oak.vcxproj", "{A7E0E588-3AF5-4E40-9AF3-C0A6BF42B328}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Oak", "Oak\Oak.vcxproj", "{A7E0E588-3AF5-4E40-9AF3-C0A6BF42B328}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "..\Sandbox\Sandbox.vcxproj", "{A7D8E369-C9A7-4CEF-9041-2F3ABF4618B7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{A7D8E369-C9A7-4CEF-9041-2F3ABF4618B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
