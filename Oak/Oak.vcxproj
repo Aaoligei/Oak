@@ -15,7 +15,7 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{a7e0e588-3af5-4e40-9af3-c0a6bf42b328}</ProjectGuid>
     <RootNamespace>Oak</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -55,10 +55,11 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>OAK_PLATFORM_WINDOWS;OAK_BUILD_DLL;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>OAK_PLATFORM_WINDOWS;OAK_BUILD_DLL;_WINDLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Oak\vendor\spdlog\include</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -71,10 +72,11 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>OAK_PLATFORM_WINDOWS;OAK_BUILD_DLL;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>OAK_PLATFORM_WINDOWS;OAK_BUILD_DLL;_WINDLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Oak\vendor\spdlog\include</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -84,6 +86,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\oakpch.h" />
+    <ClInclude Include="src\Oak\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Oak\Events\Event.h" />
+    <ClInclude Include="src\Oak\Events\KeyEvent.h" />
+    <ClInclude Include="src\Oak\Events\MouseEvent.h" />
     <ClInclude Include="src\Oak\Log.h" />
     <ClInclude Include="src\Oak.h" />
     <ClInclude Include="src\Oak\Application.h" />
@@ -91,6 +98,7 @@
     <ClInclude Include="src\Oak\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\oakpch.cpp" />
     <ClCompile Include="src\Oak\Log.cpp" />
     <ClCompile Include="src\Oak\Application.cpp" />
   </ItemGroup>

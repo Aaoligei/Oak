@@ -9,3 +9,5 @@
 #else
 	#error Oak only supports Windows!
 #endif //  OAK_PLATFORM_WINDOWS
+
+#define BIT(x) (1 << x)
