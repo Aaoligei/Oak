@@ -10,4 +10,12 @@
 	#error Oak only supports Windows!
 #endif //  OAK_PLATFORM_WINDOWS
 
+#ifdef OAK_ENABLE_ASSERTS
+#define OAK_ASSERT(x, ...) { if(!(x)) { OAK_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#define OAK_CORE_ASSERT(x, ...) { if(!(x)) { OAK_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#else
+#define OAK_ASSERT(x, ...)
+#define OAK_CORE_ASSERT(x, ...)
+#endif
+
 #define BIT(x) (1 << x)
