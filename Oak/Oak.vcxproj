@@ -46,14 +46,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)bin-int\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
-    <IncludePath>C:\Users\25342\OneDrive\桌面\Oak\Oak\vendor\GLFW\include;C:\Users\25342\OneDrive\桌面\Oak\Oak\src\Oak;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\25342\OneDrive\桌面\Oak\Oak\vendor\GLFW\lib-vc2022;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\glad\include;C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\GLFW\include;C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\src\Oak;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\GLFW\lib-vc2022;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)bin-int\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
-    <IncludePath>C:\Users\25342\OneDrive\桌面\Oak\Oak\vendor\GLFW\include;C:\Users\25342\OneDrive\桌面\Oak\Oak\src\Oak;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\25342\OneDrive\桌面\Oak\Oak\vendor\GLFW\lib-vc2022;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\glad\include;C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\GLFW\include;C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\src\Oak;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\GLFW\lib-vc2022;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -97,19 +97,42 @@
     <ClInclude Include="src\Oak\Events\Event.h" />
     <ClInclude Include="src\Oak\Events\KeyEvent.h" />
     <ClInclude Include="src\Oak\Events\MouseEvent.h" />
+    <ClInclude Include="src\Oak\imgui\ImGuiLayer.h" />
+    <ClInclude Include="src\Oak\Layer.h" />
+    <ClInclude Include="src\Oak\LayerStack.h" />
     <ClInclude Include="src\Oak\Log.h" />
     <ClInclude Include="src\Oak.h" />
     <ClInclude Include="src\Oak\Application.h" />
     <ClInclude Include="src\Oak\Core.h" />
     <ClInclude Include="src\Oak\EntryPoint.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="vendor\imgui\imconfig.h" />
+    <ClInclude Include="vendor\imgui\imgui.h" />
+    <ClInclude Include="vendor\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="vendor\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="vendor\imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="vendor\imgui\imgui_internal.h" />
+    <ClInclude Include="vendor\imgui\imstb_rectpack.h" />
+    <ClInclude Include="vendor\imgui\imstb_textedit.h" />
+    <ClInclude Include="vendor\imgui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\oakpch.cpp" />
+    <ClCompile Include="src\Oak\imgui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Oak\Layer.cpp" />
+    <ClCompile Include="src\Oak\LayerStack.cpp" />
     <ClCompile Include="src\Oak\Log.cpp" />
     <ClCompile Include="src\Oak\Application.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Oak\Window.h" />
+    <ClCompile Include="vendor\glad\src\glad.c" />
+    <ClCompile Include="vendor\imgui\imgui.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_demo.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_draw.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_tables.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

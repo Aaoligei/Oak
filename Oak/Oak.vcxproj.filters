@@ -48,6 +48,42 @@
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\Oak\Layer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Oak\LayerStack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imconfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imgui.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imgui_impl_glfw.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imgui_impl_opengl3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imgui_impl_opengl3_loader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imgui_internal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imstb_rectpack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imstb_textedit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imstb_truetype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Oak\imgui\ImGuiLayer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Oak\Application.cpp">
@@ -63,6 +99,39 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\Oak\Window.h">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Oak\Layer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Oak\LayerStack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_demo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_draw.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_impl_glfw.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_impl_opengl3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_tables.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_widgets.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\glad\src\glad.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Oak\imgui\ImGuiLayer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -38,6 +38,8 @@ namespace Oak {
 	{
 		friend class EventDispatcher;
 	public:
+		bool Handled = false;
+
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
 		virtual int GetCategoryFlags() const = 0;
@@ -47,9 +49,7 @@ namespace Oak {
 		{
 			return GetCategoryFlags() & category;
 		}
-	protected:
-		//阻挡消息跨层传入
-		bool m_Handled = false;
+
 
 	};
 
@@ -66,7 +66,7 @@ namespace Oak {
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.m_Handled = func(*(T*)&m_Event);//强制类型转换，将基类转化为派生类
+				m_Event.Handled = func(*(T*)&m_Event);//强制类型转换，将基类转化为派生类
 				return true;
 			}
 			return false;
