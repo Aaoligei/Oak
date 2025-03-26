@@ -9,7 +9,9 @@ public:
 
     void OnUpdate() override
     {
-        OAK_INFO("example OnUpdate");
+        if (Oak::Input::IsKeyPressed(OAK_KEY_TAB)) {
+            OAK_TRACE("Table key is pressed!");
+        }
     }
 
     void OnEvent(Oak::Event& event) override

@@ -169,4 +169,5 @@ namespace Oak {
     {
         return m_Data.VSync;
     }
+
 }
