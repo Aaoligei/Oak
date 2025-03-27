@@ -4,6 +4,7 @@
 #include"Core.h"
 #include "Events/ApplicationEvent.h"
 #include "LayerStack.h"
+#include"imgui/ImGuiLayer.h"
 
 namespace Oak {
 	class OAK_API Application
@@ -22,6 +23,7 @@ namespace Oak {
 
 	private:
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 

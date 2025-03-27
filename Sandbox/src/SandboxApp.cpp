@@ -1,4 +1,5 @@
 #include<Oak.h>
+#include "imgui/imgui.h"
 
 class ExampleLayer : public Oak::Layer
 {
@@ -14,6 +15,15 @@ public:
         }
     }
 
+
+    virtual void OnImGuiRender() override
+    {
+        ImGui::Begin("Test");
+        ImGui::Text("hello world");
+        ImGui::End();
+
+    }
+
     void OnEvent(Oak::Event& event) override
     {
         OAK_TRACE("{0}", event);
@@ -25,7 +35,6 @@ class Sandox :public Oak::Application {
 public:
 	Sandox() {
         PushLayer(new ExampleLayer());
-        PushOverlay(new Oak::ImGuiLayer());
 	}
 	
 	~Sandox() {
