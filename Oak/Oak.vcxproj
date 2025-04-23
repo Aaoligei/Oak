@@ -46,14 +46,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)bin-int\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
-    <IncludePath>C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\glm;C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\glad\include;C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\GLFW\include;C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\src\Oak;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\GLFW\lib-vc2022;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor\glm;C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor\glad\include;C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor\GLFW\include;C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\src\Oak;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor\GLFW\lib-vc2022;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)bin-int\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
-    <IncludePath>C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\glm;C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\glad\include;C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\GLFW\include;C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\src\Oak;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\GLFW\lib-vc2022;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor\glm;C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor\glad\include;C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor\GLFW\include;C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\src\Oak;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor\GLFW\lib-vc2022;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -61,7 +61,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>OAK_PLATFORM_WINDOWS;OAK_BUILD_DLL;_WINDLL;OAK_ENABLE_ASSERTS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\glm;$(SolutionDir)Oak\vendor\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor\glm;$(SolutionDir)Oak\vendor\spdlog\include</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -79,7 +79,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>OAK_PLATFORM_WINDOWS;OAK_BUILD_DLL;_WINDLL;OAK_ENABLE_ASSERTS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\25342\OneDrive\桌面\projects\Oak\Oak\vendor\glm;$(SolutionDir)Oak\vendor\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor\glm;$(SolutionDir)Oak\vendor\spdlog\include</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -108,6 +108,8 @@
     <ClInclude Include="src\Oak\Core.h" />
     <ClInclude Include="src\Oak\EntryPoint.h" />
     <ClInclude Include="src\Oak\MouseButtonCodes.h" />
+    <ClInclude Include="src\Oak\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="vendor\imgui\imconfig.h" />
@@ -127,6 +129,7 @@
     <ClCompile Include="src\Oak\LayerStack.cpp" />
     <ClCompile Include="src\Oak\Log.cpp" />
     <ClCompile Include="src\Oak\Application.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Oak\Window.h" />

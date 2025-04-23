@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Window.h"
-
+#include "../Platform/OpenGL/OpenGLContext.h"
 #include <GLFW/glfw3.h>
 
 namespace Oak {
@@ -29,6 +29,7 @@ namespace Oak {
 
     private:
         GLFWwindow* m_Window;
+        OpenGLContext* m_Context;
 
         struct WindowData
         {

@@ -30,6 +30,8 @@ namespace Oak {
 		static Application* s_Instance;
 
 		bool OnWindowClose(WindowCloseEvent& e);
+
+		unsigned int m_VAO, m_VBO, m_EBO;
 	};
 	Application* CreateApplication();
 }
