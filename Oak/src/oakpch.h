@@ -12,6 +12,9 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include"Core.h"
+#include"Log.h"
+
 #ifdef OAK_PLATFORM_WINDOWS
 #include<Windows.h>
 #endif // OAK_PLATFORM_WINDOWS

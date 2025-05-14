@@ -51,6 +51,29 @@ namespace Oak {
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 		glBindBuffer(GL_ARRAY_BUFFER, 0); // Unbind VBO
 		glBindVertexArray(0); // Unbind VAO
+
+		std::string vertexShaderSource = R"(
+			#version 330 core
+			layout(location = 0) in vec3 aPos;
+			out vec3 ourColor;
+			void main()
+			{
+				gl_Position = vec4(aPos, 1.0);
+				ourColor=aPos;
+			}
+		)";
+
+		std::string fragmentShaderSource = R"(
+			#version 330 core
+			out vec4 FragColor;
+			in vec3 ourColor;
+			void main()
+			{
+				
+				FragColor = vec4(ourColor.xy+0.5,ourColor.z, 1.0);
+			}
+		)";
+		m_Shader = std::make_unique<Shader>(vertexShaderSource, fragmentShaderSource);
 	}
 	Application::~Application()
 	{
@@ -61,6 +84,8 @@ namespace Oak {
 		{
 			glClearColor(0.1, 0.1, 0.1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			m_Shader->Bind();
 
 			glBindVertexArray(m_VAO);
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);

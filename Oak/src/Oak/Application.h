@@ -5,6 +5,7 @@
 #include "Events/ApplicationEvent.h"
 #include "LayerStack.h"
 #include"imgui/ImGuiLayer.h"
+#include"./Renderer/Shader.h"
 
 namespace Oak {
 	class OAK_API Application
@@ -32,6 +33,8 @@ namespace Oak {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		unsigned int m_VAO, m_VBO, m_EBO;
+
+		std::unique_ptr<Shader> m_Shader;
 	};
 	Application* CreateApplication();
 }
