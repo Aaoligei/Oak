@@ -22,13 +22,6 @@ namespace Oak {
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
 
-		//bind VAO,VBO
-		glGenVertexArrays(1, &m_VAO);
-		glBindVertexArray(m_VAO);
-
-		glGenBuffers(1, &m_VBO);
-		glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
-
 		float vertices[] = {
 			-0.5f, -0.5f, 0.0f,
 			 0.5f, -0.5f, 0.0f,
@@ -36,21 +29,21 @@ namespace Oak {
 			-0.5f,  0.5f, 0.0f
 		};
 
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-
 		unsigned int indices[] = {
 			0, 1, 2,
 			2, 3, 0
 		};
 
-		glGenBuffers(1, &m_EBO);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-		glBindBuffer(GL_ARRAY_BUFFER, 0); // Unbind VBO
-		glBindVertexArray(0); // Unbind VAO
+		//bind VAO,VBO
+		glGenVertexArrays(1, &m_VAO);
+		glBindVertexArray(m_VAO);
+
+		m_VBO.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+
+		m_EBO.reset(IndexBuffer::Create(indices, sizeof(indices)));
 
 		std::string vertexShaderSource = R"(
 			#version 330 core
@@ -88,8 +81,7 @@ namespace Oak {
 			m_Shader->Bind();
 
 			glBindVertexArray(m_VAO);
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
-			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+			glDrawElements(GL_TRIANGLES, m_EBO->GetCount(), GL_UNSIGNED_INT, 0);
 
 
 			for (Layer* layer : m_LayerStack) 
