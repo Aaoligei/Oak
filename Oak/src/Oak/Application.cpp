@@ -11,6 +11,24 @@ namespace Oak {
 
 	Application* Application::s_Instance = nullptr;
 
+	static uint32_t GetTypeToGLType(ShaderDataType type) {
+		switch (type) {
+		case ShaderDataType::Float:		return GL_FLOAT;
+		case ShaderDataType::Float2:	return GL_FLOAT;
+		case ShaderDataType::Float3:	return GL_FLOAT;
+		case ShaderDataType::Float4:	return GL_FLOAT;
+		case ShaderDataType::Int:		return GL_INT;
+		case ShaderDataType::Int2:		return GL_INT;
+		case ShaderDataType::Int3:		return GL_INT;
+		case ShaderDataType::Int4:		return GL_INT;
+		case ShaderDataType::Mat3:		return GL_FLOAT;
+		case ShaderDataType::Mat4:		return GL_FLOAT;
+		case ShaderDataType::Bool:		return GL_BOOL;
+		}
+		OAK_CORE_ASSERT(false, "Unknown ShaderDataType !");
+		return 0;
+	}
+
 	Application::Application()
 	{
 		OAK_CORE_ASSERT(!s_Instance, "Application already exists")
@@ -40,8 +58,18 @@ namespace Oak {
 
 		m_VBO.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
 
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+		//set layout
+		BufferLayout layout = {
+			{ ShaderDataType::Float3, "aPos"}
+		};
+
+		uint32_t index = 0;
+		for (const auto& element : layout)
+		{
+			glEnableVertexAttribArray(index);
+			glVertexAttribPointer(index, element.Count, element.GLType, element.Normalized? GL_TRUE:GL_FALSE, layout.GetStride(), (const void*)element.Offset);
+			index++;
+		}
 
 		m_EBO.reset(IndexBuffer::Create(indices, sizeof(indices)));
 
