@@ -115,8 +115,10 @@
     <ClInclude Include="src\Oak\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Oak\Renderer\Renderer.h" />
     <ClInclude Include="src\Oak\Renderer\Shader.h" />
+    <ClInclude Include="src\Oak\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="vendor\imgui\imconfig.h" />
@@ -139,8 +141,10 @@
     <ClCompile Include="src\Oak\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Oak\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Oak\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Oak\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Oak\Window.h" />

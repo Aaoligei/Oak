@@ -52,26 +52,17 @@ namespace Oak {
 			2, 3, 0
 		};
 
-		//bind VAO,VBO
-		glGenVertexArrays(1, &m_VAO);
-		glBindVertexArray(m_VAO);
-
+		m_VAO.reset(VertexArray::Create());
 		m_VBO.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+		m_EBO.reset(IndexBuffer::Create(indices, sizeof(indices)));
 
 		//set layout
 		BufferLayout layout = {
 			{ ShaderDataType::Float3, "aPos"}
 		};
-
-		uint32_t index = 0;
-		for (const auto& element : layout)
-		{
-			glEnableVertexAttribArray(index);
-			glVertexAttribPointer(index, element.Count, element.GLType, element.Normalized? GL_TRUE:GL_FALSE, layout.GetStride(), (const void*)element.Offset);
-			index++;
-		}
-
-		m_EBO.reset(IndexBuffer::Create(indices, sizeof(indices)));
+		m_VBO->SetLayout(layout);
+		m_VAO->AddVertexBuffer(m_VBO);
+		m_VAO->SetIndexBuffer(m_EBO);
 
 		std::string vertexShaderSource = R"(
 			#version 330 core
@@ -108,7 +99,7 @@ namespace Oak {
 
 			m_Shader->Bind();
 
-			glBindVertexArray(m_VAO);
+			m_VAO->Bind();
 			glDrawElements(GL_TRIANGLES, m_EBO->GetCount(), GL_UNSIGNED_INT, 0);
 
 

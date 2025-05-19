@@ -7,6 +7,7 @@
 #include"imgui/ImGuiLayer.h"
 #include"./Renderer/Shader.h"
 #include"./Renderer/Buffer.h"
+#include "./Renderer/VertexArray.h"
 
 namespace Oak {
 	class OAK_API Application
@@ -33,10 +34,10 @@ namespace Oak {
 
 		bool OnWindowClose(WindowCloseEvent& e);
 
-		unsigned int m_VAO;
-		std::unique_ptr<VertexBuffer> m_VBO;
-		std::unique_ptr<IndexBuffer> m_EBO;
-		std::unique_ptr<Shader> m_Shader;
+		std::shared_ptr<VertexArray> m_VAO;
+		std::shared_ptr<VertexBuffer> m_VBO;
+		std::shared_ptr<IndexBuffer> m_EBO;
+		std::shared_ptr<Shader> m_Shader;
 	};
 	Application* CreateApplication();
 }
