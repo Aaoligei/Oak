@@ -1,5 +1,17 @@
 #include"Renderer.h"
+#include"RenderCommand.h"
 
 namespace Oak {
-	RendererApi Renderer::s_RendererAPI = RendererApi::OpenGL;
+	
+	void Renderer::BeginScene()
+	{
+	}
+	void Renderer::EndScene()
+	{
+	}
+	void Renderer::Submit(const std::shared_ptr<VertexArray>& vertexArray)
+	{
+		vertexArray->Bind();
+		RenderCommand::DrawIndexed(vertexArray);
+	}
 }

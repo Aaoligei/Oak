@@ -1,16 +1,17 @@
 #pragma once
 #include"../oakpch.h"
+#include "RendererAPI.h"
 
 namespace Oak {
-	enum RendererApi {
-		None = 0,OpenGL=1
-	};
 
 	class Renderer
 	{
 	public:
-		inline static RendererApi GetApi() { return s_RendererAPI; }
-	private:
-		static RendererApi s_RendererAPI;
+		static void BeginScene();
+		static void EndScene();
+
+		static void Submit(const std::shared_ptr<VertexArray>& vertexArray);
+
+		inline static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); }
 	};
 }

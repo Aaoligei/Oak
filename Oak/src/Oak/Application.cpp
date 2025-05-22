@@ -3,7 +3,8 @@
 #include "Events/ApplicationEvent.h"
 #include "Log.h"
 #include <GLFW/glfw3.h>
-
+#include"Renderer/RenderCommand.h"
+#include"Renderer/Renderer.h"
 
 
 namespace Oak {
@@ -94,14 +95,15 @@ namespace Oak {
 	{
 		while (m_Running)
 		{
-			glClearColor(0.1, 0.1, 0.1, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
+			RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
+			RenderCommand::Clear();
+
+			Renderer::BeginScene();
 
 			m_Shader->Bind();
+			Renderer::Submit(m_VAO);
 
-			m_VAO->Bind();
-			glDrawElements(GL_TRIANGLES, m_EBO->GetCount(), GL_UNSIGNED_INT, 0);
-
+			Renderer::EndScene();
 
 			for (Layer* layer : m_LayerStack) 
 			{
