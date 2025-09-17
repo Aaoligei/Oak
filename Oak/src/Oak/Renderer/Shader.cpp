@@ -4,15 +4,15 @@
 
 Oak::Shader::Shader(const std::string& vertexSource, const std::string& fragmentSource)
 {
-	// ´´½¨Ò»¸ö¿ÕµÄ¶¥µã×ÅÉ«Æ÷¾ä±ú
+	// åˆ›å»ºä¸€ä¸ªç©ºçš„é¡¶ç‚¹ç€è‰²å™¨å¥æŸ„
 	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
 
-	// ½«¶¥µã×ÅÉ«Æ÷Ô´´úÂë·¢ËÍ¸øGL
-	// ×¢Òâstd::stringµÄ.c_strÊÇNULL×Ö·ûÖÕÖ¹µÄ¡£
+	// å°†é¡¶ç‚¹ç€è‰²å™¨æºä»£ç å‘é€ç»™GL
+	// æ³¨æ„std::stringçš„.c_stræ˜¯NULLå­—ç¬¦ç»ˆæ­¢çš„ã€‚
 	const GLchar* source = (const GLchar*)vertexSource.c_str();
 	glShaderSource(vertexShader, 1, &source, 0);
 
-	// ±àÒë¶¥µã×ÅÉ«Æ÷
+	// ç¼–è¯‘é¡¶ç‚¹ç€è‰²å™¨
 	glCompileShader(vertexShader);
 
 	GLint isCompiled = 0;
@@ -22,28 +22,28 @@ Oak::Shader::Shader(const std::string& vertexSource, const std::string& fragment
 		GLint maxLength = 0;
 		glGetShaderiv(vertexShader, GL_INFO_LOG_LENGTH, &maxLength);
 
-		// maxLength°üÀ¨NULL×Ö·û
+		// maxLengthåŒ…æ‹¬NULLå­—ç¬¦
 		std::vector<GLchar> infoLog(maxLength);
 		glGetShaderInfoLog(vertexShader, maxLength, &maxLength, &infoLog[0]);
 
-		// ÎÒÃÇ²»ÔÙĞèÒªÕâ¸ö×ÅÉ«Æ÷ÁË¡£
+		// æˆ‘ä»¬ä¸å†éœ€è¦è¿™ä¸ªç€è‰²å™¨äº†ã€‚
 		glDeleteShader(vertexShader);
 
-		// Äã¿ÉÒÔ¸ù¾İĞèÒªÊ¹ÓÃinfoLog¡£
-		OAK_CORE_ERROR("¶¥µã×ÅÉ«Æ÷±àÒëÊ§°Ü£º");
+		// ä½ å¯ä»¥æ ¹æ®éœ€è¦ä½¿ç”¨infoLogã€‚
+		OAK_CORE_ERROR("é¡¶ç‚¹ç€è‰²å™¨ç¼–è¯‘å¤±è´¥ï¼š");
 		OAK_CORE_ERROR("{0}", infoLog.data());
 		return;
 	}
 
-	// ´´½¨Ò»¸ö¿ÕµÄÆ¬¶Î×ÅÉ«Æ÷¾ä±ú
+	// åˆ›å»ºä¸€ä¸ªç©ºçš„ç‰‡æ®µç€è‰²å™¨å¥æŸ„
 	GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 
-	// ½«Æ¬¶Î×ÅÉ«Æ÷Ô´´úÂë·¢ËÍ¸øGL
-	// ×¢Òâstd::stringµÄ.c_strÊÇNULL×Ö·ûÖÕÖ¹µÄ¡£
+	// å°†ç‰‡æ®µç€è‰²å™¨æºä»£ç å‘é€ç»™GL
+	// æ³¨æ„std::stringçš„.c_stræ˜¯NULLå­—ç¬¦ç»ˆæ­¢çš„ã€‚
 	source = (const GLchar*)fragmentSource.c_str();
 	glShaderSource(fragmentShader, 1, &source, 0);
 
-	// ±àÒëÆ¬¶Î×ÅÉ«Æ÷
+	// ç¼–è¯‘ç‰‡æ®µç€è‰²å™¨
 	glCompileShader(fragmentShader);
 
 	glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &isCompiled);
@@ -52,35 +52,35 @@ Oak::Shader::Shader(const std::string& vertexSource, const std::string& fragment
 		GLint maxLength = 0;
 		glGetShaderiv(fragmentShader, GL_INFO_LOG_LENGTH, &maxLength);
 
-		// maxLength°üÀ¨NULL×Ö·û
+		// maxLengthåŒ…æ‹¬NULLå­—ç¬¦
 		std::vector<GLchar> infoLog(maxLength);
 		glGetShaderInfoLog(fragmentShader, maxLength, &maxLength, &infoLog[0]);
 
-		// ÎÒÃÇ²»ÔÙĞèÒªÕâ¸ö×ÅÉ«Æ÷ÁË¡£
+		// æˆ‘ä»¬ä¸å†éœ€è¦è¿™ä¸ªç€è‰²å™¨äº†ã€‚
 		glDeleteShader(fragmentShader);
-		// ²»ÒªĞ¹Â©×ÅÉ«Æ÷¡£
+		// ä¸è¦æ³„æ¼ç€è‰²å™¨ã€‚
 		glDeleteShader(vertexShader);
 
-		// Äã¿ÉÒÔ¸ù¾İĞèÒªÊ¹ÓÃinfoLog¡£
-		OAK_CORE_ERROR("Æ¬¶Î×ÅÉ«Æ÷±àÒëÊ§°Ü£º");
+		// ä½ å¯ä»¥æ ¹æ®éœ€è¦ä½¿ç”¨infoLogã€‚
+		OAK_CORE_ERROR("ç‰‡æ®µç€è‰²å™¨ç¼–è¯‘å¤±è´¥ï¼š");
 		OAK_CORE_ERROR("{0}", infoLog.data());
 		return;
 	}
 
-	// ¶¥µã×ÅÉ«Æ÷ºÍÆ¬¶Î×ÅÉ«Æ÷ÒÑ³É¹¦±àÒë¡£
-	// ÏÖÔÚÊÇ½«ËüÃÇÁ´½Óµ½Ò»¸ö³ÌĞòµÄÊ±ºòÁË¡£
-	// »ñÈ¡Ò»¸ö³ÌĞò¶ÔÏó¡£
+	// é¡¶ç‚¹ç€è‰²å™¨å’Œç‰‡æ®µç€è‰²å™¨å·²æˆåŠŸç¼–è¯‘ã€‚
+	// ç°åœ¨æ˜¯å°†å®ƒä»¬é“¾æ¥åˆ°ä¸€ä¸ªç¨‹åºçš„æ—¶å€™äº†ã€‚
+	// è·å–ä¸€ä¸ªç¨‹åºå¯¹è±¡ã€‚
 	GLuint program = glCreateProgram();
 	m_RendererID = program;
 
-	// ½«ÎÒÃÇµÄ×ÅÉ«Æ÷¸½¼Óµ½ÎÒÃÇµÄ³ÌĞò
+	// å°†æˆ‘ä»¬çš„ç€è‰²å™¨é™„åŠ åˆ°æˆ‘ä»¬çš„ç¨‹åº
 	glAttachShader(program, vertexShader);
 	glAttachShader(program, fragmentShader);
 
-	// Á´½ÓÎÒÃÇµÄ³ÌĞò
+	// é“¾æ¥æˆ‘ä»¬çš„ç¨‹åº
 	glLinkProgram(program);
 
-	// ×¢ÒâÕâÀïÊ¹ÓÃµÄÊÇglGetProgram*¶ø²»ÊÇglGetShader*¡£
+	// æ³¨æ„è¿™é‡Œä½¿ç”¨çš„æ˜¯glGetProgram*è€Œä¸æ˜¯glGetShader*ã€‚
 	GLint isLinked = 0;
 	glGetProgramiv(program, GL_LINK_STATUS, (int*)&isLinked);
 	if (isLinked == GL_FALSE)
@@ -88,18 +88,18 @@ Oak::Shader::Shader(const std::string& vertexSource, const std::string& fragment
 		GLint maxLength = 0;
 		glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength);
 
-		// maxLength°üÀ¨NULL×Ö·û
+		// maxLengthåŒ…æ‹¬NULLå­—ç¬¦
 		std::vector<GLchar> infoLog(maxLength);
 		glGetProgramInfoLog(program, maxLength, &maxLength, &infoLog[0]);
 
-		// ÎÒÃÇ²»ÔÙĞèÒªÕâ¸ö³ÌĞòÁË¡£
+		// æˆ‘ä»¬ä¸å†éœ€è¦è¿™ä¸ªç¨‹åºäº†ã€‚
 		glDeleteProgram(program);
-		// ²»ÒªĞ¹Â©×ÅÉ«Æ÷¡£
+		// ä¸è¦æ³„æ¼ç€è‰²å™¨ã€‚
 		glDeleteShader(vertexShader);
 		glDeleteShader(fragmentShader);
 
-		// Äã¿ÉÒÔ¸ù¾İĞèÒªÊ¹ÓÃinfoLog¡£
-		OAK_CORE_ERROR("×ÅÉ«Æ÷Á´½ÓÊ§°Ü£º");
+		// ä½ å¯ä»¥æ ¹æ®éœ€è¦ä½¿ç”¨infoLogã€‚
+		OAK_CORE_ERROR("ç€è‰²å™¨é“¾æ¥å¤±è´¥ï¼š");
 		OAK_CORE_ERROR("{0}", infoLog.data());
 		return;
 	
@@ -119,4 +119,10 @@ void Oak::Shader::Bind() const
 void Oak::Shader::UnBind() const
 {
 	glUseProgram(0);
+}
+
+void Oak::Shader::UpdateUniformMat4(const std::string& name, const glm::mat4& matrix)
+{
+	uint32_t location = glGetUniformLocation(m_RendererID, name.c_str());
+	glUniformMatrix4fv(location, 1, GL_FALSE, &matrix[0][0]);
 }

@@ -74,7 +74,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>OAK_PLATFORM_WINDOWS;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor;$(SolutionDir)Oak\src;$(SolutionDir)Oak\vendor\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor;C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor\glm;$(SolutionDir)Oak\src;$(SolutionDir)Oak\vendor\spdlog\include</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>

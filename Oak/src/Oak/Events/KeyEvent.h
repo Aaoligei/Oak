@@ -7,7 +7,7 @@
 namespace Oak {
 
 	/**
-	 * 键盘按键基础事件
+	 * 閿洏鎸夐敭鍩虹浜嬩欢
 	 **/
 	class OAK_API KeyEvent : public Event
 	{
@@ -23,8 +23,8 @@ namespace Oak {
 	};
 
 	/**
-	 * 键盘按键按下事件
-	 * 这里需要一个m_RepeatCount记录重复次数
+	 * 閿洏鎸夐敭鎸変笅浜嬩欢
+	 * 杩欓噷闇�瑕佷竴涓猰_RepeatCount璁板綍閲嶅娆℃暟
 	 **/
 	class OAK_API KeyPressedEvent : public KeyEvent
 	{
@@ -48,7 +48,7 @@ namespace Oak {
 	};
 
 	/**
-	  * 键盘按键释放事件
+	  * 閿洏鎸夐敭閲婃斁浜嬩欢
 	 **/
 	class OAK_API KeyReleasedEvent : public KeyEvent
 	{

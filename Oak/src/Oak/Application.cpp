@@ -30,7 +30,8 @@ namespace Oak {
 		return 0;
 	}
 
-	Application::Application()
+	Application::Application():
+		m_Camera(-1.6f, 1.6f, -0.9f, 0.9f)
 	{
 		OAK_CORE_ASSERT(!s_Instance, "Application already exists")
 			s_Instance = this;
@@ -69,9 +70,12 @@ namespace Oak {
 			#version 330 core
 			layout(location = 0) in vec3 aPos;
 			out vec3 ourColor;
+
+			uniform mat4 u_ViewProjection;
+
 			void main()
 			{
-				gl_Position = vec4(aPos, 1.0);
+				gl_Position = u_ViewProjection * vec4(aPos, 1.0);
 				ourColor=aPos;
 			}
 		)";
@@ -98,10 +102,9 @@ namespace Oak {
 			RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
 			RenderCommand::Clear();
 
-			Renderer::BeginScene();
+			Renderer::BeginScene(m_Camera);
 
-			m_Shader->Bind();
-			Renderer::Submit(m_VAO);
+			Renderer::Submit(m_Shader,m_VAO);
 
 			Renderer::EndScene();
 

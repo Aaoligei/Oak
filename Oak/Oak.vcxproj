@@ -113,6 +113,7 @@
     <ClInclude Include="src\Oak\MouseButtonCodes.h" />
     <ClInclude Include="src\Oak\Renderer\Buffer.h" />
     <ClInclude Include="src\Oak\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Oak\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Oak\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Oak\Renderer\Renderer.h" />
     <ClInclude Include="src\Oak\Renderer\RendererAPI.h" />
@@ -142,6 +143,7 @@
     <ClCompile Include="src\Oak\Log.cpp" />
     <ClCompile Include="src\Oak\Application.cpp" />
     <ClCompile Include="src\Oak\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Oak\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Oak\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Oak\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Oak\Renderer\RendererAPI.cpp" />

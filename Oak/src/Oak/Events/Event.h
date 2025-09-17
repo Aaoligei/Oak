@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 #include "../Core.h"
@@ -66,7 +66,7 @@ namespace Oak {
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.Handled = func(*(T*)&m_Event);//Ç¿ÖÆÀàĞÍ×ª»»£¬½«»ùÀà×ª»¯ÎªÅÉÉúÀà
+				m_Event.Handled = func(*(T*)&m_Event);//Ç¿      ×ª          ×ª  Îª      
 				return true;
 			}
 			return false;

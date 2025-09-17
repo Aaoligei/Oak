@@ -129,6 +129,9 @@
     <ClInclude Include="src\Oak\Renderer\RenderCommand.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\Oak\Renderer\OrthographicCamera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Oak\Application.cpp">
@@ -210,6 +213,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\Oak\Renderer\RenderCommand.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Oak\Renderer\OrthographicCamera.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
