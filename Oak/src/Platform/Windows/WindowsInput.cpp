@@ -1,4 +1,4 @@
-#include "../oakpch.h"
+#include "oakpch.h"
 #include "WindowsInput.h"
 
 #include "../Oak/Application.h"

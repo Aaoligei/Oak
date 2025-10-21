@@ -1,6 +1,7 @@
 #pragma once
 #include"../oakpch.h"
 
+
 namespace Oak {
 
 	enum class ShaderDataType :uint8_t {
@@ -25,7 +26,8 @@ namespace Oak {
 		return 0;
 	}
 
-	extern uint32_t GetTypeToGLType(ShaderDataType type);
+
+	
 
 	struct BufferLayoutElement {
 		std::string Name;
@@ -52,6 +54,24 @@ namespace Oak {
 			case ShaderDataType::Mat3:		return 3 * 3;
 			case ShaderDataType::Mat4:		return 4 * 4;
 			case ShaderDataType::Bool:		return 1;
+			}
+			OAK_CORE_ASSERT(false, "Unknown ShaderDataType !");
+			return 0;
+		}
+
+		uint32_t GetTypeToGLType(ShaderDataType type) const {
+			switch (type) {
+			case ShaderDataType::Float:		return 0x1406;				//GL_FLOAT == 0x1406
+			case ShaderDataType::Float2:	return 0x1406;
+			case ShaderDataType::Float3:	return 0x1406;
+			case ShaderDataType::Float4:	return 0x1406;
+			case ShaderDataType::Int:		return 0x1404;				//GL_INT == 0x1404
+			case ShaderDataType::Int2:		return 0x1404;
+			case ShaderDataType::Int3:		return 0x1404;
+			case ShaderDataType::Int4:		return 0x1404;
+			case ShaderDataType::Mat3:		return 0x1406;
+			case ShaderDataType::Mat4:		return 0x1406;
+			case ShaderDataType::Bool:		return 0x8B56;				// GL_BOOL == 0x8B56
 			}
 			OAK_CORE_ASSERT(false, "Unknown ShaderDataType !");
 			return 0;

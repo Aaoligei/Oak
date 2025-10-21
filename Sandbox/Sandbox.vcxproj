@@ -77,12 +77,15 @@
       <AdditionalIncludeDirectories>C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor;C:\Users\25342\OneDrive\Desktop\projects\Oak\Oak\vendor\glm;$(SolutionDir)Oak\src;$(SolutionDir)Oak\vendor\spdlog\include</AdditionalIncludeDirectories>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)Oak\vendor\GLFW\lib-vc2022;$(SolutionDir)bin\$(Configuration)-$(Platform)\Oak;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Oak.lib;glfw3_mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

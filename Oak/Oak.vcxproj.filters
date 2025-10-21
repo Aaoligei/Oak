@@ -132,6 +132,9 @@
     <ClInclude Include="src\Oak\Renderer\OrthographicCamera.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="vendor\glad\include\glad\glad.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Oak\Application.cpp">

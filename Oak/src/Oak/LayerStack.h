@@ -6,7 +6,7 @@
 
 namespace Oak {
 
-    class OAK_API LayerStack
+    class LayerStack
     {
     public:
         LayerStack();

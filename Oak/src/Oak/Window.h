@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../oakpch.h"
+#include "oakpch.h"
 
 #include "Core.h"
 #include "Events/Event.h"

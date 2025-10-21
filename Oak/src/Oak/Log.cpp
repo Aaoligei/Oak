@@ -1,3 +1,4 @@
+#include "oakpch.h"
 #include "Log.h"
 namespace Oak {
 	std::shared_ptr<spdlog::logger>  Log::s_CoreLogger;

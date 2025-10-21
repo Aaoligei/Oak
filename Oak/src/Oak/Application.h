@@ -35,12 +35,6 @@ namespace Oak {
 
 		bool OnWindowClose(WindowCloseEvent& e);
 
-		std::shared_ptr<VertexArray> m_VAO;
-		std::shared_ptr<VertexBuffer> m_VBO;
-		std::shared_ptr<IndexBuffer> m_EBO;
-		std::shared_ptr<Shader> m_Shader;
-
-		OrthographicCamera m_Camera;
 	};
 	Application* CreateApplication();
 }
